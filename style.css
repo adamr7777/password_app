@@ -1,0 +1,30 @@
+html, body {
+    height: 98%;
+}
+
+
+body {
+    background-image: url('space.jpeg');
+}
+
+#main {
+    /* border: 3px dotted black; */
+    height: 98%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#container {
+    /* border: 3px dotted red; */
+    margin-right: 90px;
+    margin-bottom: 300px;
+    background: white;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    padding-right: 30px;
+    padding-left: 30px;
+    border-radius: 5px;
+}
