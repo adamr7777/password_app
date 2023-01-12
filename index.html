@@ -6,16 +6,20 @@
     </head>
     <body>
         <div id='main'>
-            <div id='container'>
+            <div class='container'>
                 <form id='form-el'>
                     <label for='pass-input' >This is your password:</label>
                      <input id='pass-input' type='text'/>
                     <button>Generate!</button>
                     <div class='custom-div'>
                         <label for='length'>Password length:</label>
-                        <input id='length' type='number' value='0' min='0' max='24'/>
+                        <input id='length' type='number' value='0' min='0' max='20'/>
                         <label for='num-check'>Include numbers</label>
                         <input id='num-check' type='checkbox'/>
+                        <label for='cap-check'>Include capitals</label>
+                        <input id='cap-check' type='checkbox'/>
+                        <label for='symbol-check'>Include symbols</label>
+                        <input id='symbol-check' type='checkbox'/>
                     </div>
                 </form>
             </div>

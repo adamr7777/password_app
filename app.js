@@ -3,10 +3,11 @@
 const formEl = document.getElementById('form-el');
 const passLengthEl = document.getElementById('length');
 const numCheckEl = document.getElementById('num-check');
+const capCheckEl = document.getElementById('cap-check');
+const symbolCheckEl = document.getElementById('symbol-check');
 
 
-
-//max pass length - 24
+//max pass length - 24 looks like it can go higher than 20
 
 
 formEl.addEventListener('submit', getPass);
@@ -18,13 +19,25 @@ function getPass(event) {
     let password = '';
     let passwordLen = passLengthEl.value;
     const data = makeData();
-    //making the 1 array of 2
+    //pushing numbers into the array
     if (numCheckEl.checked) {
         passwordLen = passwordLen - 1;
         for (let element of data.numbers) {
-            data.abc.push(element)
+            data.abc.push(element);
     }}
-    // console.log(data);
+    //pushing capitals into the array
+    if(capCheckEl.checked) {
+        data.capitals.forEach(function(element) {
+            data.abc.push(element);
+        })
+    }
+    //pushing special symbols into the array
+    if(symbolCheckEl.checked) {
+        data.symbols.forEach(function(element) {
+            data.abc.push(element);
+        })
+    }
+    // console.log(data.abc);
     for (let i=0; i<passwordLen; i++) {
         const rNum = Math.floor(Math.random() * data.abc.length); 
         const rChar = data.abc[rNum];
@@ -44,9 +57,15 @@ function getPass(event) {
 
 function makeData() {
     const alphabet = 'abcdefghijklmnopqrstuvwxyz';
-    const numbers = '0123456789'
+    const numbers = '0123456789';
+    const capitalLetters = alphabet.toUpperCase();
+    const symbols = '.!@#$%^&*()_+-=';
     return {
         abc: Array.from(alphabet),
-        numbers: Array.from(numbers)
+        numbers: Array.from(numbers),
+        capitals: Array.from(capitalLetters),
+        symbols: Array.from(symbols),
     }
 }
+
+
